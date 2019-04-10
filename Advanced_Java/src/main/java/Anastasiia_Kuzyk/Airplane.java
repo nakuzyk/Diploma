@@ -1,70 +1,77 @@
+package Anastasiia_Kuzyk;
+
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.RandomUtils;
 
+@RequiredArgsConstructor
 public class Airplane {
     private boolean autopilot;
-    private AirplaneColor airplaneColor;
+    private @NonNull AirplaneColor airplaneColor;
 
-    public Airplane(AirplaneColor airplaneColor) {
-        this.airplaneColor = airplaneColor;
-    }
-
-    private void activeAutopilot(){
+    private void activeAutopilot() {
         autopilot = true;
     }
+
+    @Getter
     public abstract class Position {
         private int position;
 
-        protected int getPosition() {
-            return position;
-        }
-
         public void setPosition(int position) {
-            if(position >= 1 && position <=4) {
+            if (position >= 1 && position <= 4) {
                 this.position = position;
             }
         }
     }
-    public class Ailerons extends Position{
-        public AirplaneColor aileronsColor;
+
+    public class Ailerons extends Position {
+        AirplaneColor aileronsColor;
+
         public void changePosition() {
             activeAutopilot();
-            if(getPosition() == 4) {
+            if (getPosition() == 4) {
                 setPosition(1);
-            }
-            else setPosition(getPosition()+1);
+            } else setPosition(getPosition() + 1);
         }
-        public AirplaneColor setColor(AirplaneColor airplaneColor){
+
+        public AirplaneColor installCollor(AirplaneColor airplaneColor) {
             return aileronsColor = airplaneColor;
         }
     }
+
     public class Elevators extends Position {
-        public AirplaneColor elevatorsColor;
+        AirplaneColor elevatorsColor;
+
         public void changePosition() {
             activeAutopilot();
-            if(getPosition() == 4) {
+            if (getPosition() == 4) {
                 setPosition(1);
-            }
-            else setPosition(getPosition()+1);
+            } else setPosition(getPosition() + 1);
         }
-        public AirplaneColor setColor(AirplaneColor airplaneColor){
+
+        public AirplaneColor installCollor(AirplaneColor airplaneColor) {
             return elevatorsColor = airplaneColor;
         }
     }
-    public static class Engine <T extends Exception> {
+
+    public static class Engine<T extends Exception> {
         private boolean activeEngine = false;
         private T exception;
 
         public Engine(T t) {
             exception = t;
         }
+
         @SneakyThrows
-        public void turnOn(){
+        public void turnOn() {
             activeEngine = true;
             if (RandomUtils.nextInt(0, 10) > 6) {
                 throw exception;
             }
         }
+
         @SneakyThrows
         public void turnOff() {
             activeEngine = false;

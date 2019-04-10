@@ -1,3 +1,5 @@
+package Anastasiia_Kuzyk;
+
 import lombok.AllArgsConstructor;
 
 import java.util.regex.Matcher;
@@ -6,13 +8,13 @@ import java.util.regex.Pattern;
 @AllArgsConstructor
 public enum AirplaneColor {
 
-    BLACK("#000", 70){
+    BLACK("#000", 70) {
         @Override
         public void burnoutColor() {
             BLACK.sunBurnoutPercentage = 5 * BLACK.sunBurnoutPercentage;
         }
     },
-    WHITE("#ffffff", 50){
+    WHITE("#ffffff", 50) {
         @Override
         public void burnoutColor() {
             WHITE.sunBurnoutPercentage = 2 * WHITE.sunBurnoutPercentage;

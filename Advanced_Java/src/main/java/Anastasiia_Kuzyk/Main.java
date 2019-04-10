@@ -1,3 +1,5 @@
+package Anastasiia_Kuzyk;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -10,11 +12,11 @@ public class Main {
         elevators.changePosition();
         System.out.println(ailerons.getPosition());
         System.out.println(elevators.getPosition());
-        ailerons.setColor(AirplaneColor.WHITE);
-        elevators.setColor(AirplaneColor.BLACK);
+        ailerons.installCollor(AirplaneColor.WHITE);
+        elevators.installCollor(AirplaneColor.BLACK);
 
         Airplane.Engine<RuntimeException> engine = new Airplane.Engine<RuntimeException>(new RuntimeException("Engine is broken"));
-        System.out.println( AirplaneColor.validateRGB("#0f0"));
+        System.out.println(AirplaneColor.validateRGB("#0f0"));
         engine.turnOn();
     }
 }
