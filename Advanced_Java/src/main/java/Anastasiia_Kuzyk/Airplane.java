@@ -19,7 +19,7 @@ public class Airplane {
     public abstract class Position {
         private int position;
 
-        public void setPosition(int position) {
+        protected void setPosition(int position) {
             if (position >= 1 && position <= 4) {
                 this.position = position;
             }
