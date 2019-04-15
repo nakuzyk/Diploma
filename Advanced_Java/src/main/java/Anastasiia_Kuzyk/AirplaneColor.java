@@ -23,11 +23,12 @@ public enum AirplaneColor {
 
     private String colorRGB;
     private int sunBurnoutPercentage;
+    private static final String REGEX = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
 
     public abstract void burnoutColor();
 
     public static boolean validateRGB(String colorRGB) {
-        Pattern colorPattern = Pattern.compile("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
+        Pattern colorPattern = Pattern.compile(REGEX);
         Matcher m = colorPattern.matcher(colorRGB);
         return m.matches();
     }

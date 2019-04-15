@@ -1,9 +1,6 @@
 package Anastasiia_Kuzyk;
 
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
+import lombok.*;
 import org.apache.commons.lang3.RandomUtils;
 
 @RequiredArgsConstructor
@@ -27,32 +24,24 @@ public class Airplane {
     }
 
     public class Ailerons extends Position {
-        AirplaneColor aileronsColor;
+        AirplaneColor aileronsColor = Airplane.this.airplaneColor;
 
         public void changePosition() {
             activeAutopilot();
             if (getPosition() == 4) {
                 setPosition(1);
             } else setPosition(getPosition() + 1);
-        }
-
-        public AirplaneColor installCollor(AirplaneColor airplaneColor) {
-            return aileronsColor = airplaneColor;
         }
     }
 
     public class Elevators extends Position {
-        AirplaneColor elevatorsColor;
+        AirplaneColor elevatorsColor = Airplane.this.airplaneColor;
 
         public void changePosition() {
             activeAutopilot();
             if (getPosition() == 4) {
                 setPosition(1);
             } else setPosition(getPosition() + 1);
-        }
-
-        public AirplaneColor installCollor(AirplaneColor airplaneColor) {
-            return elevatorsColor = airplaneColor;
         }
     }
 
