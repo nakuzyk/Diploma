@@ -1,0 +1,2 @@
+chrome_browser.property = REMOTE_CHROME
+firefox_browser.property = REMOTE_FIREFOX
