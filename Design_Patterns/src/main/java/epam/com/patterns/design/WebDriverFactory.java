@@ -1,6 +1,7 @@
 package epam.com.patterns.design;
 
 import lombok.SneakyThrows;
+
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 
